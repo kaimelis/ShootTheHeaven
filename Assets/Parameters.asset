@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b657a6e594b07104d94004e91a02d002, type: 3}
   m_Name: Parameters
   m_EditorClassIdentifier: 
-  lifes: 0
-  currentScore: 0
+  lifes: 2
+  currentScore: 6
+  HasReset: 0

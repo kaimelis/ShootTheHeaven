@@ -9,11 +9,12 @@ public class EnemyManager : MonoBehaviour
 
     public void RespawnEnemy()
     {
-        if(this != null)
-            Instantiate(EnemyTypes[(int)Random.Range(0, EnemyTypes.Count-1)], 
-                new Vector3(Random.Range(minX, maxX), Random.Range(maxY, maxY+3), 0), 
-                Quaternion.identity,transform);
-        
+        for (int i = 0; i < 2; i++)
+        {
+                 Instantiate(EnemyTypes[(int)Random.Range(0, EnemyTypes.Count - 1)],
+                        new Vector3(Random.Range(minX, maxX), Random.Range(maxY, maxY + 6), 0),
+                        Quaternion.identity, transform);
+        }
     }
 
     public void Start()
@@ -30,6 +31,5 @@ public class EnemyManager : MonoBehaviour
                         new Vector3(Random.Range(minX, maxX), Random.Range(maxY, maxY + 3), 0),
                         Quaternion.identity, transform);
         }
-        
     }
 }

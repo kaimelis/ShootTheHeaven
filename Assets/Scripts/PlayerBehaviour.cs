@@ -47,19 +47,20 @@ public class PlayerBehaviour : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
                 _playerRB.velocity = Vector2.zero;
         }
-
-        //if (Input.GetKey(KeyCode.A))
-        //    _playerRB.velocity = new Vector2(-Speed, 0);
-        //else if (Input.GetKey(KeyCode.D))
-        //    _playerRB.velocity = new Vector2(Speed, 0);
-        //else
-        //    _playerRB.velocity = Vector2.zero;
-
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.A))
+            _playerRB.velocity = new Vector2(-Speed, 0);
+        else if (Input.GetKey(KeyCode.D))
+            _playerRB.velocity = new Vector2(Speed, 0);
+        else
+            _playerRB.velocity = Vector2.zero;
+#endif
         if (Time.time > _nextFire)
         {
             Instantiate(Bullet,_playerTransform.position, Quaternion.identity);
             _nextFire = Time.time + fireRate;
         }
+
     }
 
     private void LateUpdate()
@@ -80,6 +81,10 @@ public class PlayerBehaviour : MonoBehaviour
             LivesManager.RemoveALife();
             //explode particle
             Destroy(gameObject);
+
+#if !UNITY_EDITOR
+            KyVibrator.Vibrate(5);
+#endif
         }
     }
 

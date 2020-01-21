@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -669,6 +669,7 @@ MonoBehaviour:
   score: {fileID: 11400000, guid: bd6cdccd683de4b47936045b2929312f, type: 2}
   parameters: {fileID: 11400000, guid: 5f5bc13d76314044d8465c5a48d86657, type: 2}
   scoreManager: {fileID: 87302907}
+  livesManager: {fileID: 1667465162}
   UI: {fileID: 1364927768}
 --- !u!4 &427685345
 Transform:
@@ -1175,7 +1176,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 245
+  m_Text: 1
 --- !u!222 &901551297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1759,6 +1760,7 @@ MonoBehaviour:
   LivesHUD: {fileID: 450706220}
   ResetCanvas: {fileID: 1135785559}
   RestartCanvas: {fileID: 161873959}
+  ScoreManager: {fileID: 87302907}
   LivesSprites: []
 --- !u!1 &1679719518
 GameObject:
@@ -7243,7 +7245,7 @@ PrefabInstance:
     - target: {fileID: 7896031304124347799, guid: deac60ca7f0e32441bd0e83f9db20fee,
         type: 3}
       propertyPath: Speed
-      value: 9
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7896031304124347799, guid: deac60ca7f0e32441bd0e83f9db20fee,
         type: 3}

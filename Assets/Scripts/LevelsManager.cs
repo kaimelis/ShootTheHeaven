@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelsManager : MonoBehaviour
@@ -9,21 +7,30 @@ public class LevelsManager : MonoBehaviour
     public ScoreParameter score;
     public GameParameters parameters;
     public ScoreManager scoreManager;
+    public LivesManager livesManager;
     public GameObject UI;
 
     private void Start()
     {
-        parameters.lifes = lives.lifes;
+        if(!parameters.HasReset)
+        {
+            score.CurrentScore = 0;
+            parameters.lifes = lives.lifes;
+        }
+        else
+            parameters.currentScore = score.CurrentScore;
     }
 
     public void ResetLevel()
     {
+        parameters.HasReset = true;
         parameters.currentScore = score.CurrentScore;
         LoadThisScene();
     }
 
     public void RestartGame()
     {
+        parameters.HasReset = false;
         lives.lifes = parameters.lifes;
         scoreManager.SaveHighScore();
         UI.SetActive(false);

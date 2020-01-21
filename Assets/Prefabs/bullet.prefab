@@ -118,6 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.2
   Score: {fileID: 11400000, guid: bd6cdccd683de4b47936045b2929312f, type: 2}
+  enemyManager: {fileID: 0}
+  ExplosionParticle: {fileID: 2796554473307778606, guid: fbacceb1242c6be439b1a373c36deaa4,
+    type: 3}
 --- !u!61 &823505314835085172
 BoxCollider2D:
   m_ObjectHideFlags: 0

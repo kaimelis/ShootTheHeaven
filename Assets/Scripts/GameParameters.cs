@@ -7,4 +7,5 @@ public class GameParameters : ScriptableObject
 {
     public int lifes;
     public int currentScore;
+    public bool HasReset = false;
 }

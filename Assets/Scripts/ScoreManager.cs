@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -14,10 +12,10 @@ public class ScoreManager : MonoBehaviour
         ScoreHUD.text = ScoreParameter.CurrentScore.ToString();
     }
 
+    //At the end of the game
     public void SaveHighScore()
     {
         ScoreParameter.HighScore = ScoreParameter.CurrentScore;
-        ScoreParameter.CurrentScore = 0;
         FinalHighScoreText.text = ScoreParameter.HighScore.ToString();
     }
 }

@@ -7,13 +7,10 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform _transform;
     private Vector3 _direction;
     public float Speed = 1;
-    private EnemyManager _enemyManager;
-    public GameObject ExplosionParticle;
+    
     void Start()
     {
         _transform = GetComponent<Transform>();
-        _enemyManager = GetComponentInParent<EnemyManager>();
-
     }
 
     void FixedUpdate()
@@ -24,14 +21,17 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnDestroy()
-    {
-        if(_enemyManager != null)
-        {
-            _enemyManager.RespawnEnemy();
-            GameObject obj = Instantiate(ExplosionParticle,transform.position,Quaternion.identity);
-            Destroy(obj,0.2f);
-            KyVibrator.Vibrate(1);
-        }
-    }
+//    private void OnDestroy()
+//    {
+//        if(_enemyManager != null && this != null)
+//        {
+//            _enemyManager.RespawnEnemy();
+//            GameObject obj = Instantiate(ExplosionParticle,transform.position,Quaternion.identity);
+//            Destroy(obj,0.2f);
+
+//#if !UNITY_EDITOR
+//            KyVibrator.Vibrate(1);
+//#endif
+//        }
+//    }
 }
