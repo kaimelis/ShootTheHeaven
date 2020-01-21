@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
     private Transform _transform;
     public float Speed = 1;
+    public ScoreParameter Score;
 
     void Start()
     {
@@ -21,7 +20,13 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            if(other.gameObject != null)
+            {
+                Destroy(other.gameObject);
+                Score.AddScore();
+
+
+            }
             Destroy(gameObject);
         }
     }
@@ -30,6 +35,4 @@ public class BulletBehaviour : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 }
