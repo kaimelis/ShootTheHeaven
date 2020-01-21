@@ -15,7 +15,8 @@ public class ScoreManager : MonoBehaviour
     //At the end of the game
     public void SaveHighScore()
     {
-        ScoreParameter.HighScore = ScoreParameter.CurrentScore;
+        if(ScoreParameter.HighScore < ScoreParameter.CurrentScore)
+            ScoreParameter.HighScore = ScoreParameter.CurrentScore;
         FinalHighScoreText.text = ScoreParameter.HighScore.ToString();
     }
 }
